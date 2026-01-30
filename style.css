@@ -1,0 +1,42 @@
+* {
+     font-family: 'Noto Sans Symbols', 'Segoe UI Symbol', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.radar-container {
+    width: 90%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    grid-template-rows: 7fr 2fr 6fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    background-image: url('images/tir.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin: 0 auto;
+}
+
+.grid-cell {
+    position: relative;
+}
+
+.sensor-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 50%;
+    max-width: 400px;
+    margin-top: -30px; /* nakładanie na radar */
+    margin-left: 10px;
+    gap: 5px;
+}
+
+.sensor-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

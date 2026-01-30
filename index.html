@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>IFLS – Panel Kierowcy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="images/transport.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols&display=swap" rel="stylesheet">
+
+
+<script defer src="app.js"></script>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+<header class="bg-gray-800 p-4 flex justify-between items-center">
+  <div class="text-l font-semibold">
+    Intelligent Fast Loading System
+    <p id="page-title" class="text-yellow-400 mt-2">Panel Kierowcy</p>
+  </div>
+
+  <!-- Hamburger menu -->
+  <div class="relative">
+    <button id="menu-toggle" class="text-white text-2xl">&#9776;</button>
+    <div id="menu" class="absolute right-0 mt-2 w-40 bg-gray-700 rounded shadow-lg hidden flex-col">
+      <button class="menu-item p-2 hover:bg-gray-600 w-full" data-page="dashboard">Panel Kierowcy</button>
+      <button class="menu-item p-2 hover:bg-gray-600 w-full" data-page="loading">Załadunek</button>
+      <button class="menu-item p-2 hover:bg-gray-600 w-full" data-page="stats">Statystyki</button>
+      <button class="menu-item p-2 hover:bg-gray-600 w-full" data-page="wms_erp">WMS/ERP System</button>
+      <button class="menu-item p-2 bg-yellow-400 font-bold w-full" data-page="settings">Ustawienia</button>
+    </div>
+  </div>
+</header>
+
+<main class="flex-1 w-full flex flex-col items-center gap-6 p-4">
+
+  <!-- Panel Kierowcy -->
+  <section id="dashboard-page" class="w-full flex flex-col items-center gap-6">
+    <!-- Status -->
+    <div class="bg-gray-800 p-4 rounded-xl text-center w-full max-w-sm">
+        <p class="text-lg">Status:</p>
+        <p class="text-2xl font-bold text-yellow-400 mt-2" id="status-text">...</p>
+    </div>
+
+    <!-- Instrukcja -->
+    <div class="bg-gray-800 p-4 rounded-xl text-center w-full max-w-sm">
+        <p class="text-lg mb-2">Instrukcja</p>
+        <p class="text-sm font-bold" id="instruction-text">.....</p>
+    </div>
+
+    <!-- Radar + strzałki -->
+    <div class="flex flex-col items-center gap-6 relative">
+        <div class="radar-container grid gap-2">
+
+  <!-- Górny rząd -->
+  <div class="grid-cell flex justify-center items-center">
+    <!-- lewa pusta -->
+  </div>
+  <div class="grid-cell flex justify-center items-center">
+    <!-- środek pusty -->
+  </div>
+  <div class="grid-cell flex justify-center items-center">
+    <!-- prawa pusta -->
+  </div>
+
+  <!-- Środkowy rząd -->
+  <div class="grid-cell flex justify-center items-center gap-1">
+    <!-- Strzałki w lewo -->
+<svg viewBox="0 0 24 24" 
+     class="arrow side-arrow w-6 h-6 text-yellow-400" 
+     data-dir="left" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg viewBox="0 0 24 24" 
+     class="arrow side-arrow w-8 h-8 text-yellow-400" 
+     data-dir="left" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg viewBox="0 0 24 24" 
+     class="arrow side-arrow w-10 h-10 text-yellow-400" 
+     data-dir="left" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+  </div>
+
+  <div class="grid-cell flex justify-center items-center">
+    <!-- środek pusty -->
+  </div>
+
+  <div class="grid-cell flex justify-center items-center gap-1">
+    <!-- Strzałki w prawo -->
+<svg viewBox="0 0 24 24" 
+     class="arrow side-arrow w-10 h-10 text-yellow-400" 
+     data-dir="right" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg viewBox="0 0 24 24" 
+     class="arrow side-arrow w-8 h-8 text-yellow-400" 
+     data-dir="right" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg viewBox="0 0 24 24" 
+     class="arrow side-arrow w-6 h-6 text-yellow-400" 
+     data-dir="right" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  </div>
+
+  <!-- Dolny rząd (puste) -->
+  <div class="grid-cell flex justify-around items-center"></div>
+  <div class="grid-cell flex justify-center items-center"></div>
+  <div class="grid-cell flex justify-around items-center"></div>
+</div>
+
+<!-- Dolne strzałki / sensory -->
+<div class="sensor-container flex flex-col items-center gap-4">
+
+  <div class="flex justify-around items-center gap-2">
+<svg viewBox="0 0 24 24" 
+     class="arrow bottom-arrow w-6 h-6 text-yellow-400" 
+     data-dir="down" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg viewBox="0 0 24 24" 
+     class="arrow bottom-arrow w-6 h-6 text-yellow-400" 
+     data-dir="down" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg viewBox="0 0 24 24" 
+     class="arrow bottom-arrow w-6 h-6 text-yellow-400" 
+     data-dir="down" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  </div>
+
+  <div class="flex justify-center items-center gap-2">
+<svg viewBox="0 0 24 24" 
+     class="arrow bottom-arrow w-6 h-6 text-yellow-400" 
+     data-dir="down" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg viewBox="0 0 24 24" 
+     class="arrow bottom-arrow w-6 h-6 text-yellow-400" 
+     data-dir="down" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg viewBox="0 0 24 24" 
+     class="arrow bottom-arrow w-6 h-6 text-yellow-400" 
+     data-dir="down" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  </div>
+
+  <div class="flex justify-center items-center gap-2">
+<svg viewBox="0 0 24 24" 
+     class="arrow bottom-arrow w-6 h-6 text-yellow-400" 
+     data-dir="down" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg viewBox="0 0 24 24" 
+     class="arrow bottom-arrow w-6 h-6 text-yellow-400" 
+     data-dir="down" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg viewBox="0 0 24 24" 
+     class="arrow bottom-arrow w-6 h-6 text-yellow-400" 
+     data-dir="down" 
+     data-level="3">
+  <polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  </div>
+
+</div>
+
+        </div>
+    </div>
+
+    <!-- Przyciski -->
+    <div class="buttons flex justify-center gap-2 mt-4 w-full max-w-md px-2">
+        <button id="btn-dock" class="bg-red-400 text-black p-2 rounded w-36">Wjazd</button>
+        <button id="btn-angle" class="bg-orange-400 text-black p-2 rounded w-36">Korekta kątowa</button>
+        <button id="btn-reverse" class="bg-yellow-400 text-black p-2 rounded w-36">Dojazd</button>
+        <button id="btn-ok" class="bg-green-400 text-black p-2 rounded w-36">Pozycja OK</button>
+    </div>
+
+
+<!-- Popup POZYCJA OK -->
+<div id="ok-popup"
+     class="fixed inset-0 bg-black/60 hidden z-50 flex items-center justify-center">
+  
+  <div class="bg-gray-800 p-6 rounded-xl text-center max-w-sm w-full mx-4">
+    <p class="text-2xl font-bold text-green-400 mb-4">
+      POZYCJA OK
+    </p>
+    <p class="mb-6">
+      Pojazd ustawiony prawidłowo.<br>
+      Można rozpocząć załadunek.
+    </p>
+        <button id="close-popup1"
+                class="bg-green-500 text-black px-4 py-2 w-full">
+          Rozpocznij załadunek
+        </button>
+        <button id="close-popup2"
+                class="bg-red-500 text-black px-4 py-2 w-full">
+         Anuluj
+        </button>
+  </div>
+
+</div>
+
+
+  </section>
+
+  <!-- Załadunek -->
+  <section id="loading-page" class="hidden w-full flex flex-col items-center gap-4">
+    <h2 class="text-2xl mb-2">Informacje o załadunku</h2>
+    <p>Status załadunku, info o towarze, progres itp.</p>
+  </section>
+
+  <!-- Statystyki -->
+  <section id="stats-page" class="hidden w-full flex flex-col items-center gap-4">
+    <h2 class="text-2xl mb-2">Statystyki</h2>
+    <p>Tu możesz dodać wykresy lub raporty.</p>
+  </section>
+  
+  <!-- WMS/ERP -->
+  <section id="wms_erp-page" class="hidden w-full flex flex-col items-center gap-4">
+    <h2 class="text-2xl mb-2">WMS/ERP System</h2>
+    <p>Integracja z systemem WMS/ERP, database.</p>
+  </section>
+
+    <!-- Ustawienia -->
+  <section id="settings-page" class="hidden w-full flex flex-col items-center gap-4">
+    <h2 class="text-2xl mb-2">Ustawienia systemu</h2>
+    <p>Tu można wstawić kontrolki: dźwięki, język, itp.</p>
+  </section>
+
+</main>
+
+<footer class="bg-gray-800 p-2 text-center text-sm text-gray-400">
+  <p>Centrum Energooszczędnych Rozwiązań - Małgorzata Gałat</p>
+  <p class="m-1"><a href="https://e-cer.pl" class="text-yellow-200 font-bold text-lg">e-cer.pl</a></p>
+  <p>IFLS © 2026</p>
+</footer>
+
+</body>
+</html>
