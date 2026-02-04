@@ -22,7 +22,7 @@
 
 .grid-cell {
     position: relative;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .sensor-container {
@@ -30,7 +30,7 @@
     max-width: 200px;
     margin-top: -30px; 
     margin-left: 10px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
 }
 
